@@ -36,7 +36,16 @@ namespace Pixel.Controllers
       }
     }
 
-    private string QueryParameters
+    private string BaseURI
+    {
+      get
+      {
+        return Request.PathBase;
+      }
+    }
+
+
+    private string QueryParams
     {
       get
       {
@@ -56,7 +65,8 @@ namespace Pixel.Controllers
           string line = $"TimeStamp: {TimeStamp}, ";
           line += $"RemoteIpAddress: {RemoteIpAddress}, ";
           line += $"Path: {Path}, ";
-          line += $"QueryParameters: {QueryParameters}";
+          line += $"BaseURI: {BaseURI}, ";
+          line += $"QueryParameters: {QueryParams}";
           writer.WriteLine(line);
         }
 
